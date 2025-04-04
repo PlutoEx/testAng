@@ -17,10 +17,11 @@ export class StepsFormComponent implements OnInit {
   currency = this.currencies[0];
 
   editor!: Editor;
-  html = '';
+  editor2!: Editor;
 
   ngOnInit() {
     this.editor = new Editor();
+    this.editor2 = new Editor();
   }
 
   public files: NgxFileDropEntry[] = [];
