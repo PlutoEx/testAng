@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>{{data ? "Редактирование заявки" : "Добавление заявки" }}</h2>
+<mat-dialog-content [formGroup]="form">
+  <div class="form">
+    <mat-form-field>
+      <mat-label>Название</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Количество</mat-label>
+      <input matInput type="number" min="0" formControlName="quantity">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Цена за единицу</mat-label>
+      <input matInput type="number" min="0" formControlName="unitPrice">
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button mat-dialog-close (click)="onSubmit()">Submit</button>
+  <button *ngIf="data" mat-button mat-dialog-close (click)="onDelete()">Delete</button>
+</mat-dialog-actions>

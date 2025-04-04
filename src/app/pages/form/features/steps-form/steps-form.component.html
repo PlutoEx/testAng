@@ -1,0 +1,192 @@
+<div>
+  <mat-stepper linear #stepper>
+    <mat-step label="General Info.">
+      <form>
+        <div class="header">
+          <h3>General Information</h3>
+          <p>Let's fill out the basics information of the contract.</p>
+        </div>
+        <span>Team</span>
+        <mat-form-field>
+          <mat-select placeholder="Filllo Team">
+            @for (team of teams; track team) {
+              <mat-option [value]="team">{{ team }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <span>Contact Name</span>
+        <mat-form-field>
+          <input matInput placeholder="Contact for Product Design">
+        </mat-form-field>
+        <div class="split-col">
+          <div class="col">
+            <span>Contactor's Country</span>
+            <mat-form-field>
+              <mat-select placeholder="Canada">
+                @for (country of countries; track country) {
+                  <mat-option [value]="country">{{ country }}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <span>State</span>
+            <mat-form-field>
+              <mat-select placeholder="Toronto">
+                @for (state of states; track state) {
+                  <mat-option [value]="state">{{ state }}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <span>Job Title</span>
+        <mat-form-field>
+          <mat-select placeholder="Product Designer">
+            @for (state of states; track state) {
+              <mat-option [value]="state">{{ state }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <span>Area of Work</span>
+        <div class="cr-editor">
+          <ngx-editor-menu [editor]="editor"></ngx-editor-menu>
+          <ngx-editor [editor]="editor"></ngx-editor>
+        </div>
+        <span>Start Date</span>
+        <mat-form-field>
+          <input matInput placeholder="Feb 5th, 2023" [matDatepicker]="picker">
+          <mat-datepicker-toggle matIconSuffix
+                                 [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <div>
+          <button class="nav-button" mat-flat-button matStepperNext>Next
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step label="Payment Info">
+      <form>
+        <div class="header">
+          <h3>Add Payment Information</h3>
+          <p>Fill out the payment information for this contract</p>
+        </div>
+        <span>Payment Currency</span>
+        <mat-form-field>
+          <mat-select placeholder="USD" [(ngModel)]="currency"
+                      [ngModelOptions]="{standalone: true}">
+            @for (currency of currencies; track currency) {
+              <mat-option [value]="currency">{{ currency }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <div class="row">
+          <h4>Milestones</h4>
+          <button mat-stroked-button>Add Milestone</button>
+        </div>
+        <span>Milestone Name</span>
+        <mat-form-field>
+          <mat-select placeholder="Complete Homepage">
+            @for (state of states; track state) {
+              <mat-option [value]="state">{{ state }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <span>Work Description</span>
+        <div class="cr-editor">
+          <ngx-editor-menu [editor]="editor"></ngx-editor-menu>
+          <ngx-editor [editor]="editor"></ngx-editor>
+        </div>
+        <span>Amount to Pay</span>
+        <mat-form-field class="example-full-width">
+          <span matTextPrefix>{{ currency }} &nbsp;</span>
+          <input type="number" matInput placeholder="$250">
+        </mat-form-field>
+        <div>
+          <!--          Could customized more -->
+          <div class="center">
+            <ngx-file-drop dropZoneLabel="Drop files here"
+                           (onFileDrop)="dropped($event)"
+                           (onFileOver)="fileOver($event)"
+                           (onFileLeave)="fileLeave($event)">
+              <ng-template ngx-file-drop-content-tmp
+                           let-openFileSelector="openFileSelector">
+                Optional custom content that replaces the the entire default
+                content.
+                <button type="button" (click)="openFileSelector()">Browse
+                  Files
+                </button>
+              </ng-template>
+            </ngx-file-drop>
+            <div class="upload-table">
+              <table class="table">
+                <thead>
+                <tr>
+                  <th>Name</th>
+                </tr>
+                </thead>
+                <tbody class="upload-name-style">
+                <tr *ngFor="let item of files; let i=index">
+                  <td><strong>{{ item.relativePath }}</strong></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <button class="nav-button" mat-flat-button matStepperNext>Next</button>
+      </form>
+    </mat-step>
+    <mat-step label="Benefits & Compliance">
+      <form>
+        <div class="header">
+          <h3>Compliance & Others</h3>
+          <p>Fill out the compliance details</p>
+        </div>
+        <span>Termination Date</span>
+        <mat-form-field>
+          <input matInput placeholder="May 5th, 2023" [matDatepicker]="picker2">
+          <mat-datepicker-toggle matIconSuffix
+                                 [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <span>Notice Period</span>
+        <mat-form-field>
+          <mat-select placeholder="10 Weeks">
+            @for (state of states; track state) {
+              <mat-option [value]="state">{{ state }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <div class="row">
+          <h4>Stack Offer</h4>
+          <button mat-stroked-button>Add</button>
+        </div>
+        <p>Contract with that will be paid as the get. Contract with that will
+          be paid as the get completed.</p>
+        <section>
+          <h4>Contract Compliance</h4>
+          <div class="col">
+          <mat-checkbox>User ProDeel Contract</mat-checkbox>
+          <mat-checkbox disabled checked>User Custome Contract</mat-checkbox>
+          </div>
+        </section>
+        <section class="mt-10">
+          <mat-checkbox disabled checked>Compliance Documents</mat-checkbox>
+        </section>
+        <p>Contract with that will be paid as the get. Contract with that will
+          be paid as the get completed.</p>
+        <button class="nav-button" mat-flat-button (click)="stepper.reset()">
+          Create Contract
+        </button>
+      </form>
+    </mat-step>
+    <mat-step label="Review & Sign">
+    </mat-step>
+    <mat-step label="Contractor Sign">
+    </mat-step>
+    <mat-step label="Activated">
+    </mat-step>
+  </mat-stepper>
+</div>
