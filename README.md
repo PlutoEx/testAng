@@ -19,3 +19,8 @@ ng serve
 Once the server is running, open your browser and navigate to `http://localhost:4200/`.
 
 Links to tasks 1 and 2 located in header. Button 'Заказы' is task 1 and button 'Форма' is task 2
+
+
+Notes:
+
+Styles of CK editor is not correspond because there is no styling documentation in library that I used.
