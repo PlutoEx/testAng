@@ -1,11 +1,25 @@
 import {Component, Inject} from '@angular/core';
 import {RequestStore, Request} from '../../data-access/requests.store';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-request-form',
-  standalone: false,
+  imports: [
+    MatButtonModule,
+    MatDialogModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    NgIf
+  ],
   templateUrl: './request-form.component.html',
   styleUrl: './request-form.component.css'
 })

@@ -1,11 +1,33 @@
 import {Component, OnInit} from '@angular/core';
-import {Editor} from 'ngx-editor';
-import {CdkDragDrop} from '@angular/cdk/drag-drop';
-import {NgxFileDropEntry} from 'ngx-file-drop';
+import {Editor, NgxEditorModule} from 'ngx-editor';
+import {NgxFileDropEntry, NgxFileDropModule} from 'ngx-file-drop';
+import {MatStepperModule} from '@angular/material/stepper';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {NgForOf, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-steps-form',
-  standalone: false,
+  imports: [
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    FormsModule,
+    NgxEditorModule,
+    NgxFileDropModule,
+    MatCheckboxModule,
+    NgForOf,
+    NgIf
+  ],
   templateUrl: './steps-form.component.html',
   styleUrl: './steps-form.component.css'
 })

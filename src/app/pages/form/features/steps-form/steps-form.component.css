@@ -1,7 +1,8 @@
 form {
-  width: 50%;
+  width: 40%;
   margin: 0 auto;
   display: flex;
+  gap: 10px;
   flex-direction: column;
   align-content: center;
 }
@@ -16,6 +17,31 @@ form {
   align-items: center;
 }
 
+.header h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.header p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+::ng-deep mat-form-field {
+  color: gray;
+  width: 100%;
+  margin: 0;
+}
+
+::ng-deep mat-form-field {
+  --mat-sys-on-surface-variant: gray;
+}
+
+:host ::ng-deep .mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 20px;
+}
+
 .split-col {
   display: flex;
   gap: 20px;
@@ -25,15 +51,6 @@ form {
   display: flex;
   width: 100%;
   flex-direction: column;
-}
-
-.cr-editor {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 8px;
-  background: #f5f5f5;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 10px;
 }
 
 .row {
@@ -50,3 +67,36 @@ form {
 .mt-10 {
   margin-top: 20px;
 }
+
+mat-select {
+  color: gray;
+}
+
+span {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+p {
+  color: gray;
+}
+
+:host ::ng-deep .mdc-checkbox {
+  --mat-sys-on-surface: gray;
+  --mat-sys-surface: gray;
+}
+
+.choose-file {
+  color: #007bff;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.drop-content p {
+  margin: 8px 0;
+}
+
+.drop-content {
+  text-align: center;
+}
+

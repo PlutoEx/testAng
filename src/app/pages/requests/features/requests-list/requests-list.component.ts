@@ -2,11 +2,18 @@ import {Component, OnInit} from '@angular/core';
 import {RequestStore} from '../../data-access/requests.store'
 import {MatDialog} from '@angular/material/dialog';
 import {RequestFormComponent} from '../request-form/request-form.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-requests-list',
+  imports: [
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule
+  ],
   templateUrl: './requests-list.component.html',
-  standalone: false,
   styleUrl: './requests-list.component.css'
 })
 export class RequestsListComponent implements OnInit {
