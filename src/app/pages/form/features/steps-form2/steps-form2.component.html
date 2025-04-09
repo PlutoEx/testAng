@@ -1,0 +1,26 @@
+<div class="stepper" [ngStyle]="{ '--line-width': lineWidth }">
+  <div class="step"
+       [ngClass]="{'active': active >= 1, 'last-active': active === 1}"
+       (click)="goToStep(1)">General Info.
+  </div>
+  <div class="step"
+       [ngClass]="{'active': active >= 2, 'last-active': active === 2}"
+       (click)="goToStep(2)">Payment Info
+  </div>
+  <div class="step"
+       [ngClass]="{'active': active >= 3, 'last-active': active === 3}"
+       (click)="goToStep(3)">Benefits & Compliance
+  </div>
+  <div class="step"
+       [ngClass]="{'active': active >= 4, 'last-active': active === 4}"
+       (click)="goToStep(4)">Review & Sign
+  </div>
+  <div class="step"
+       [ngClass]="{'active': active >= 5, 'last-active': active === 5}"
+       (click)="goToStep(5)">Contractor Sign
+  </div>
+  <div class="step"
+       [ngClass]="{'active': active >= 6, 'last-active': active === 6}"
+       (click)="goToStep(6)">Activated
+  </div>
+</div>

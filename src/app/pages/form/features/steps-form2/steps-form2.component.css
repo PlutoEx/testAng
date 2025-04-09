@@ -1,0 +1,67 @@
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 40px 40px 40px;
+}
+
+.stepper::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background-color: gray;
+  z-index: 0;
+}
+
+.step {
+  position: relative;
+  text-align: center;
+  flex: 1;
+  font-size: 14px;
+  color: #aaa;
+  font-weight: 500;
+}
+
+.stepper::after {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 8%;
+  right: calc(100% - var(--line-width) + 8%);
+  height: 2px;
+  background-color: #1976d2;
+  z-index: 0;
+}
+
+.step::before {
+  content: "";
+  position: absolute;
+  top: 33px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #d3d3d3;
+  z-index: 1;
+}
+
+
+.step.active {
+  color: #1976d2;
+  font-weight: bold;
+}
+
+.step.active::before {
+  background-color: #1976d2;
+  border-color: #1976d2;
+}
+
+.step.last-active.active::before {
+  background-color: #fff;
+  border-color: #1976d2;
+}

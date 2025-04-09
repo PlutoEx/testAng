@@ -10,6 +10,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {NgForOf, NgIf} from '@angular/common';
+import {StepsForm2Component} from '../steps-form2/steps-form2.component';
 
 @Component({
   selector: 'app-steps-form',
@@ -26,7 +27,8 @@ import {NgForOf, NgIf} from '@angular/common';
     NgxFileDropModule,
     MatCheckboxModule,
     NgForOf,
-    NgIf
+    NgIf,
+    StepsForm2Component
   ],
   templateUrl: './steps-form.component.html',
   styleUrl: './steps-form.component.css'
